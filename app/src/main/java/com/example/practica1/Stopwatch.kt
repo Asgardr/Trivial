@@ -27,7 +27,7 @@ class Stopwatch {
     @RequiresApi(Build.VERSION_CODES.O)
     private val formatter = DateTimeFormatter.ofPattern("mm:ss")
 
-    private var pattern = "mm-ss"
+    private var pattern = "mm:ss"
     private var simpleDateFormat = SimpleDateFormat(pattern)
 
     private var coroutine = CoroutineScope(Dispatchers.Main)
