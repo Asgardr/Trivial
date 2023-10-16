@@ -2,6 +2,7 @@ package com.example.practica1
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -30,6 +31,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
@@ -140,12 +142,16 @@ private fun QuizContent(
 ){
     val onSurface = Color(0xFF1C1B1F)
 
+
     LazyColumn(
         modifier = modifier,
         contentPadding = PaddingValues(start = 20.dp, end = 20.dp)
     ){
         item {
             Spacer(modifier = Modifier.height(32.dp))
+            Image( painterResource(id = R.drawable.ic_launcher_background),
+                contentDescription = "ImagenPrueba",
+                modifier = Modifier.padding(horizontal = 130.dp))
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -160,6 +166,8 @@ private fun QuizContent(
                         .fillMaxWidth()
                         .padding(vertical = 24.dp, horizontal = 16.dp)
                 )
+
+
             }
             Spacer(modifier = Modifier.height(24.dp))
 
