@@ -2,9 +2,12 @@ package com.example.practica1
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -13,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -30,6 +34,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
@@ -142,10 +148,19 @@ private fun QuizContent(
 
     LazyColumn(
         modifier = modifier,
-        contentPadding = PaddingValues(start = 20.dp, end = 20.dp)
+        contentPadding = PaddingValues(start = 20.dp, end = 20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ){
         item {
             Spacer(modifier = Modifier.height(32.dp))
+
+            Image( painterResource(id = R.drawable.outlast),
+                contentDescription = "ImagenPrueba",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(200.dp)
+                    .border(BorderStroke(1.dp, Color.Black))
+            )
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
