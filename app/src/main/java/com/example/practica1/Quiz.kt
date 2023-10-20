@@ -156,7 +156,7 @@ private fun QuizContent(
         item {
             Spacer(modifier = Modifier.height(32.dp))
 
-            Image( painterResource(id = R.drawable.outlast),
+            Image( painterResource(id = question.imagen),
                 contentDescription = "ImagenPrueba",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

@@ -1,5 +1,14 @@
 package com.example.practica1
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -25,8 +34,8 @@ class QuizViewModel (
             var respuesta4 = Answer(4, "Persona 4")
             var respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             var respuestaCorrecta = 1
-            var imagen = "Persona 5";
-            var question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            var question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.persona5recortada)
+
 
             preguntas.add(question)
 
@@ -38,8 +47,7 @@ class QuizViewModel (
             respuesta4 = Answer(4, "My Time at Portia")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 2
-            imagen = "Animal Crossing"
-            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.animalcrossing)
 
             preguntas.add(question)
 
@@ -51,8 +59,7 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Monster sanctuary")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 3
-            imagen = "Pokemon sol y luna"
-            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.pokemonsolylunarecortada)
 
             preguntas.add(question)
 
@@ -64,8 +71,7 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Rainbow Six Siege")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 3
-            imagen = "Valorant"
-            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.valorant)
 
             preguntas.add(question)
 
@@ -77,8 +83,7 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Alien Isolation")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 2
-            imagen = "Outlast"
-            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.outlastrecortada)
 
             preguntas.add(question)
 
@@ -90,8 +95,7 @@ class QuizViewModel (
             respuesta4 = Answer(4, "T-Rex (Dino run)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 4
-            imagen = "T-Rex (Dino Run)"
-            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.trex)
 
             preguntas.add(question)
 
@@ -103,8 +107,7 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Cole (Gears of war)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 2
-            imagen = "Heavy (team fortress 2)"
-            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.heavyrecortada)
 
             preguntas.add(question)
 
@@ -116,8 +119,7 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Blue(pokemon)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 4
-            imagen = "Blue(pokemon)"
-            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.bluerecortada)
 
             preguntas.add(question)
 
@@ -129,8 +131,7 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Cuphead (Cuphead)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 1
-            imagen = 1
-            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.theknight)
 
             preguntas.add(question)
 
@@ -142,8 +143,7 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Astarion (Baldurs Gate 3)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 4
-            imagen =
-            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
+            question = Question(pregunta, respuestas, respuestaCorrecta, R.drawable.astarionrecortada)
 
             preguntas.add(question)
 
