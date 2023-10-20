@@ -25,7 +25,8 @@ class QuizViewModel (
             var respuesta4 = Answer(4, "Persona 4")
             var respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             var respuestaCorrecta = 1
-            var question = Question(pregunta, respuestas, respuestaCorrecta)
+            var imagen = "Persona 5";
+            var question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
@@ -37,7 +38,8 @@ class QuizViewModel (
             respuesta4 = Answer(4, "My Time at Portia")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 2
-            question = Question(pregunta, respuestas, respuestaCorrecta)
+            imagen = "Animal Crossing"
+            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
@@ -49,7 +51,8 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Monster sanctuary")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 3
-            question = Question(pregunta, respuestas, respuestaCorrecta)
+            imagen = "Pokemon sol y luna"
+            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
@@ -61,7 +64,8 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Rainbow Six Siege")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 3
-            question = Question(pregunta, respuestas, respuestaCorrecta)
+            imagen = "Valorant"
+            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
@@ -73,7 +77,8 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Alien Isolation")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 2
-            question = Question(pregunta, respuestas, respuestaCorrecta)
+            imagen = "Outlast"
+            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
@@ -85,7 +90,8 @@ class QuizViewModel (
             respuesta4 = Answer(4, "T-Rex (Dino run)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 4
-            question = Question(pregunta, respuestas, respuestaCorrecta)
+            imagen = "T-Rex (Dino Run)"
+            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
@@ -97,7 +103,8 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Cole (Gears of war)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 2
-            question = Question(pregunta, respuestas, respuestaCorrecta)
+            imagen = "Heavy (team fortress 2)"
+            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
@@ -109,7 +116,8 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Blue(pokemon)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 4
-            question = Question(pregunta, respuestas, respuestaCorrecta)
+            imagen = "Blue(pokemon)"
+            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
@@ -121,7 +129,8 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Cuphead (Cuphead)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 1
-            question = Question(pregunta, respuestas, respuestaCorrecta)
+            imagen = 1
+            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
@@ -133,7 +142,8 @@ class QuizViewModel (
             respuesta4 = Answer(4, "Astarion (Baldurs Gate 3)")
             respuestas = listOf<Answer>(respuesta1, respuesta2, respuesta3, respuesta4)
             respuestaCorrecta = 4
-            question = Question(pregunta, respuestas, respuestaCorrecta)
+            imagen =
+            question = Question(pregunta, respuestas, respuestaCorrecta, imagen)
 
             preguntas.add(question)
 
