@@ -62,7 +62,7 @@ private fun Title(){
     Column(
         Modifier.padding(50.dp)
     ) {
-        Text(text = "Preguntas de PGA",
+        Text(text = "El Gran Quiz de Videojuegos",
             fontSize = 30.sp,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold
