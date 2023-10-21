@@ -1,6 +1,7 @@
 package com.example.practica1
 
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -35,15 +36,20 @@ class Stopwatch {
     private var startTime = 0L
 
     var isPlaying = false
+    var isPaused = false
 
 
     fun start(){
-        if(isPlaying) return
+
+        Log.d("Start", "$isPlaying")
+
+        //if(isPlaying) return
 
         coroutine.launch {
             startTime = System.currentTimeMillis()
-            this@Stopwatch.isPlaying = true
-            while(this@Stopwatch.isPlaying){
+            isPlaying = true
+            Log.d("Corrutina", "$isPlaying")
+            while(isPlaying && !isPaused){
                 delay(10L)
                 time += System.currentTimeMillis() - startTime
                 startTime = System.currentTimeMillis()
@@ -52,10 +58,16 @@ class Stopwatch {
         }
     }
 
+    fun reset(){
+        time = 0L
+        startTime = 0L
+        isPaused = false
+    }
+
 
     fun pause(){
-        this@Stopwatch.isPlaying = false
-        coroutine.cancel()
+        isPaused = true
+        Log.d("Pause", "$isPlaying")
     }
 
     fun stop(){

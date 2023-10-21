@@ -23,7 +23,9 @@ import androidx.navigation.NavHostController
 
 @Composable
 fun Start(
-    navController: NavHostController
+    navController: NavHostController,
+    questionState : Questions,
+    stopwatch : Stopwatch
 ){
     Surface(color = MaterialTheme.colorScheme.background) {
         Column(
@@ -36,7 +38,12 @@ fun Start(
         ) {
             Title()
             StartButton(
-                onStart = {navController.navigate("quiz")}
+                onStart = {
+                    stopwatch.reset()
+                    stopwatch.start()
+                    questionState.questionIndex = 0
+                    navController.navigate("quiz")
+                }
             )
         }
     }
@@ -55,7 +62,7 @@ private fun Title(){
     Column(
         Modifier.padding(50.dp)
     ) {
-        Text(text = "Preguntas de PGA",
+        Text(text = "El Gran Quiz de Videojuegos",
             fontSize = 30.sp,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold
