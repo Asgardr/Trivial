@@ -1,6 +1,7 @@
 package com.example.practica1
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -51,7 +52,14 @@ class MainActivity : ComponentActivity() {
                         LoginForm(navController = navController)
                     }
                     composable(route = "start"){
-                        Start(navController = navController)
+
+                        val questionState by viewModel.state.collectAsState()
+
+                        Start(
+                            navController = navController,
+                            questionState = questionState,
+                            stopwatch = stopwatch
+                        )
                     }
                     composable("quiz"){
                         viewModel.TestQuestions()

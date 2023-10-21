@@ -1,5 +1,6 @@
 package com.example.practica1
 
+import android.util.Log
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -52,8 +53,6 @@ fun Quiz(
     questions: Questions,
     stopwatch: Stopwatch
 ){
-    stopwatch.start()
-
     Surface(
         modifier = Modifier
             .fillMaxWidth()

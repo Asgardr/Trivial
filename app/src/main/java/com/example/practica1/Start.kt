@@ -23,7 +23,9 @@ import androidx.navigation.NavHostController
 
 @Composable
 fun Start(
-    navController: NavHostController
+    navController: NavHostController,
+    questionState : Questions,
+    stopwatch : Stopwatch
 ){
     Surface(color = MaterialTheme.colorScheme.background) {
         Column(
@@ -36,7 +38,12 @@ fun Start(
         ) {
             Title()
             StartButton(
-                onStart = {navController.navigate("quiz")}
+                onStart = {
+                    stopwatch.reset()
+                    stopwatch.start()
+                    questionState.questionIndex = 0
+                    navController.navigate("quiz")
+                }
             )
         }
     }
