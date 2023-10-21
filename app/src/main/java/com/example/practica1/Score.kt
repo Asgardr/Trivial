@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -39,6 +40,18 @@ fun Score(
             Text(
                 text = "Tu tiempo ${stopwatch.formattedTime}"
             )
+            StartButton(
+                onStart = {navController.navigate("Start")}
+            )
         }
+    }
+}
+
+@Composable
+private fun StartButton(
+    onStart: () -> Unit
+){
+    OutlinedButton(onClick = onStart) {
+        Text(text = "Back to Start")
     }
 }

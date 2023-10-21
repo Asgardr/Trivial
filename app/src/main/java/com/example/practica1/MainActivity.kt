@@ -46,7 +46,10 @@ class MainActivity : ComponentActivity() {
 
                 val navController = rememberNavController()
                 val stopwatch = Stopwatch()
-                NavHost(navController = navController, startDestination = "start"){
+                NavHost(navController = navController, startDestination = "LoginForm"){
+                    composable(route = "LoginForm"){
+                        LoginForm(navController = navController)
+                    }
                     composable(route = "start"){
                         Start(navController = navController)
                     }

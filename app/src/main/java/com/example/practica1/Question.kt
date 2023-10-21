@@ -8,6 +8,7 @@ data class Question(
     val question: String,
     val answers: List<Answer>,
     val correctAnswer: Int,
+    val imagen: Int,
     //@PrimaryKey(autoGenerate = true)
     //val id: Int? = null,
 )
