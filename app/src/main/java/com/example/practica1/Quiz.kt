@@ -24,6 +24,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,6 +37,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.practica1.ui.theme.Practica1Theme
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.toList
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -58,11 +61,11 @@ fun Quiz(
             },
             content = { padding ->
                 QuizContent(
-                    question = questions.questionsState[questions.questionIndex],
+                    question = questions.questionsList!![questions.questionIndex],
                     selectedAnswer = questions.answerSelected,
                     onAnswer = {
                         questions.answerSelected = it.id
-                        if(questions.answerSelected == questions.questionsState[questions.questionIndex].correctAnswer){
+                        if(questions.answerSelected == questions.questionsList!![questions.questionIndex].question.correctAnswer){
                             println("La Respuesta es correcta")
                             questions.totalScore++
                         }else{
@@ -133,7 +136,7 @@ private fun QuizTopBar(
 
 @Composable
 private fun QuizContent(
-    question: Question,
+    question: QuestionWithAnswers,
     selectedAnswer: Int,
     onAnswer: (Answer) -> Unit,
     modifier: Modifier = Modifier
@@ -154,7 +157,7 @@ private fun QuizContent(
                     )
             ) {
                 Text(
-                    text = question.question,
+                    text = question.question.question,
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier
                         .fillMaxWidth()
@@ -174,12 +177,12 @@ private fun QuizContent(
 
 @Composable
 private fun AnswerOptions(
-    question: Question,
+    question: QuestionWithAnswers,
     selectedAnswer: Int,
     onAnswerSelected: (Answer) -> Unit,
     modifier: Modifier = Modifier
 ){
-    val options = question.answers
+    val options = question.answer
 
     val (selectedOption, onOptionSelected) = remember {
         mutableStateOf(selectedAnswer)
@@ -195,7 +198,7 @@ private fun AnswerOptions(
             val optionSelected = answer.id == selectedOption
 
             val answerBorderColor = if (optionSelected) {
-                if (selectedOption == question.correctAnswer) {
+                if (selectedOption == question.question.correctAnswer) {
                     colorScheme.primaryContainer.copy(alpha = 0.5f)
                 } else {
                     colorScheme.secondaryContainer.copy(alpha = 0.5f)
@@ -205,7 +208,7 @@ private fun AnswerOptions(
             }
 
             val answerBackgroundColor = if (optionSelected) {
-                if (selectedOption == question.correctAnswer) {
+                if (selectedOption == question.question.correctAnswer) {
                     colorScheme.primaryContainer.copy(alpha = 0.5f)
                 } else {
                     colorScheme.secondaryContainer.copy(alpha = 0.5f)

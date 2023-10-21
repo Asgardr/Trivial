@@ -1,18 +1,56 @@
 package com.example.practica1
 
-//import androidx.room.Entity
-//import androidx.room.PrimaryKey
+import androidx.room.ColumnInfo
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
+import androidx.room.Relation
 
-//@Entity
+@Entity(tableName = "tabla_preguntas")
 data class Question(
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "id")
+    val id: Int = 0,
+
+    @ColumnInfo(name = "pregunta")
     val question: String,
-    val answers: List<Answer>,
+
+    @ColumnInfo(name = "respuestaCorrecta")
     val correctAnswer: Int,
-    //@PrimaryKey(autoGenerate = true)
-    //val id: Int? = null,
 )
 
+@Entity(
+    tableName = "tabla_respuestas",
+    /*foreignKeys = [
+        ForeignKey(
+            entity = Question::class,
+            parentColumns = ["id"],
+            childColumns = ["questionId"],
+            onDelete = ForeignKey.CASCADE
+        )
+    ]*/)
 data class Answer(
-    val id: Int,
-    val text: String
+    @ColumnInfo(name = "answerId")
+    val answerId: Int?,
+
+    @ColumnInfo (name = "respuesta")
+    val text: String,
+
+    @ColumnInfo (name = "questionId")
+    val questionId: Int?,
+
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0
+)
+
+data class QuestionWithAnswers (
+    @Embedded
+    val question: Question,
+    @Relation(
+        entity = Answer::class,
+        parentColumn = "id",
+        entityColumn = "questionId",
+    )
+    val answer: List<Answer>
 )
