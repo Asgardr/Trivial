@@ -75,7 +75,6 @@ fun Quiz(
                         }else{
                             println("La Respuesta es incorrecta")
                         }
-                        //Thread.sleep(1000)
                         if((questions.questionIndex + 1) < questions.totalQuestions ){
                             questions.questionIndex++
                         }else{
@@ -209,32 +208,12 @@ private fun AnswerOptions(
             }
 
             val optionSelected = answer.id == selectedOption
-
-            val answerBorderColor = if (optionSelected) {
-                if (selectedOption == question.correctAnswer) {
-                    colorScheme.primaryContainer.copy(alpha = 0.5f)
-                } else {
-                    colorScheme.secondaryContainer.copy(alpha = 0.5f)
-                }
-            }else{
-                colorScheme.secondary.copy(alpha = 0.12f)
-            }
-
-            val answerBackgroundColor = if (optionSelected) {
-                if (selectedOption == question.correctAnswer) {
-                    colorScheme.primaryContainer.copy(alpha = 0.5f)
-                } else {
-                    colorScheme.secondaryContainer.copy(alpha = 0.5f)
-                }
-            }else{
-                colorScheme.secondary.copy(alpha = 0.12f)
-            }
-
+            
             Surface(
                 shape = MaterialTheme.shapes.small,
                 border = BorderStroke(
                     width = 1.dp,
-                    color = answerBorderColor
+                    color = colorScheme.primary
                 ),
                 modifier = modifier.padding(vertical = 8.dp)
             ){
@@ -245,13 +224,15 @@ private fun AnswerOptions(
                             selected = optionSelected,
                             onClick = onClickHandle
                         )
-                        .background(answerBackgroundColor)
+                        //.background(answerBackgroundColor)
                         .padding(vertical = 16.dp, horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ){
                     Text(
-                        modifier = modifier.weight(1f),
+                        modifier = modifier
+                            .weight(1f)
+                            .padding(horizontal = 16.dp),
                         text = answer.text
                     )
                 }
