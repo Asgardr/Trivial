@@ -42,6 +42,7 @@ fun Start(
                     stopwatch.reset()
                     stopwatch.start()
                     questionState.questionIndex = 0
+                    questionState.totalScore = 0
                     navController.navigate("quiz")
                 }
             )
